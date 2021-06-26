@@ -19,21 +19,20 @@ int power(int x, int y, int MOD = INF) {
         return (x * power((x * x) % MOD, (y - 1) / 2) % MOD) % MOD;
     }
 }
-
 int32_t main() {
     ios_base::sync_with_stdio(false);
     cin.tie(nullptr);
     cout.tie(nullptr);
     int t = 1;
 //    cin >> t;
-//    int MOD = power(10, 9) + 7;
 
     while (t--) {
-        int ar[3];
-        for (int i = 0; i < 3; ++i) {
-            cin>>ar[i];
+        int a,b,c,d;
+        cin >> a>>b>>c>>d;
+        if (b>=c*d){
+            cout<<"-1\n";
+        } else{
+            cout<<ceil((float)a/(float)(d*c-b))<<"\n";
         }
-        sort(ar,ar+3);
-        cout<<ar[1]+ar[2]<<"\n";
     }
 }
