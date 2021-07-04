@@ -33,11 +33,24 @@ int32_t main() {
     cin.tie(nullptr);
     cout.tie(nullptr);
     int t = 1;
-    cin >> t;
     while (t--) {
         int n;
         cin >> n;
-
+        int coins[11];
+        coins[0] = 1;
+        for (int i = 1; i <=10 ; ++i) {
+            coins[i] = coins[i-1]*i;
+        }
+        reverse(coins,coins+11);
+        int totalCoins = 0;
+        int i = 0;
+        while (n>0){
+            int x = n/coins[i];
+            n -= x * coins[i];
+            totalCoins += x;
+            i++;
+        }
+        cout<<totalCoins;
         cout << "\n";
     }
 }
