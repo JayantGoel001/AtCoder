@@ -33,10 +33,21 @@ int32_t main() {
     cin.tie(nullptr);
     cout.tie(nullptr);
     int t = 1;
+    int MOD = power(10,9)+7;
     while (t--) {
         int n;
         cin >> n;
-
+        int ar[n];
+        for (int i = 0; i < n; ++i) {
+            cin>>ar[i];
+            ar[i] = ar[i]%MOD;
+        }
+        sort(ar,ar+n);
+        int sum = 1;
+        for (int i = 0; i < n; ++i) {
+            sum = (sum * (ar[i]-i + MOD)%MOD)%MOD;
+        }
+        cout<<sum%MOD;
         cout << "\n";
     }
 }
