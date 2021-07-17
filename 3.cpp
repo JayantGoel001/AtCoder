@@ -31,9 +31,27 @@ int32_t main() {
     cout.tie(nullptr);
     int t = 1;
     while (t--) {
-        int n;
-        cin >> n;
-
+        int n,k;
+        cin >> n>>k;
+        int ar[n];
+        for (int i = 0; i < n; ++i) {
+            cin>>ar[i];
+        }
+        map<int,int> mp;
+        int maxi = 0;
+        for (int i = 0; i < n; ++i) {
+            if (i<k){
+                mp[ar[i]]++;
+            } else{
+                mp[ar[i]]++;
+                mp[ar[i-k]]--;
+                if (mp[ar[i-k]]==0){
+                    mp.erase(ar[i-k]);
+                }
+            }
+            maxi = max(maxi,(int)mp.size());
+        }
+        cout<<maxi;
         cout << "\n";
     }
 }
