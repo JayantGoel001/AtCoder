@@ -33,7 +33,20 @@ int32_t main() {
     while (t--) {
         int n;
         cin >> n;
-
+        string str;
+        cin>>str;
+        int firstOcc = -1;
+        for (int i = 0; i < n; ++i) {
+            if (str[i]=='1'){
+                firstOcc = i+1;
+                break;
+            }
+        }
+        if (firstOcc%2!=0){
+            cout<<"Takahashi";
+        } else{
+            cout<<"Aoki";
+        }
         cout << "\n";
     }
 }
