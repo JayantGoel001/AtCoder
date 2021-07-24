@@ -31,8 +31,16 @@ int32_t main() {
     cout.tie(nullptr);
     int t = 1;
     while (t--) {
-        int n;
-        cin >> n;
+        string str[4];
+        for (int i = 0; i < 4; ++i) {
+            cin>>str[i];
+        }
+        sort(str,str+4);
+        if (str[0]=="2B" && str[1] == "3B" && str[2] == "H" && str[3]=="HR"){
+            cout<<"Yes";
+        } else{
+            cout<<"No";
+        }
 
         cout << "\n";
     }
