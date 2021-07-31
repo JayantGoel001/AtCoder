@@ -37,9 +37,32 @@ int32_t main() {
     cout.tie(nullptr);
     int t = 1;
     while (t--) {
-        int n;
-        cin >> n;
-
+        int n,m;
+        cin >> n>>m;
+        int ar[n];
+        int br[m];
+        for (int i = 0; i < n; ++i) {
+            cin>>ar[i];
+        }
+        for (int i = 0; i < m; ++i) {
+            cin>>br[i];
+        }
+        sort(br,br+m);
+        int mini = INT_MAX;
+        for (int i = 0; i < n; ++i) {
+            int pos = lower_bound(br,br+m,ar[i]) - br;
+            if(pos<m && br[pos]==ar[i]){
+                mini = 0;
+                break;
+            }
+            if(pos<m){
+                mini = min(mini,abs(br[pos] - ar[i]));
+            }
+            if(pos>0){
+                mini = min(mini,abs(br[pos-1] - ar[i]));
+            }
+        }
+        cout<<mini;
         cout << "\n";
     }
 }
