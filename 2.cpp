@@ -31,8 +31,20 @@ int32_t main() {
     cout.tie(nullptr);
     int t = 1;
     while (t--) {
-        int n;
-        cin >> n;
+        string str;
+        cin>>str;
+        int x1,x2,x3,x4;
+        x1 = (int)str[0] - 48;
+        x2 = (int)str[1] - 48;
+        x3 = (int)str[2] - 48;
+        x4 = (int)str[3] - 48;
+        if(x1 == x2 && x2 == x3 && x3 == x4 && x1 == x4){
+            cout<<"Weak";
+        } else if( (x1+1)%10 ==x2 && (x2+1)%10==x3 && (x3+1)%10==x4){
+            cout<<"Weak";
+        } else{
+            cout<<"Strong";
+        }
 
         cout << "\n";
     }
